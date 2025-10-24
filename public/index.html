@@ -1,0 +1,60 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+  <meta charset="utf-8" /> 
+  <meta name="viewport" content="width=device-width,initialscale=1"/> 
+  <title>Realtime Chat — Nice UI</title> 
+  <link rel="stylesheet" href="/styles.css"> 
+  <script src="/socket.io/socket.io.js"></script> 
+</head> 
+<body> 
+  <div class="app"> 
+    <aside class="sidebar"> 
+      <div class="brand">  ChatSpace</div> 
+      <div class="user-panel"> 
+        <div class="avatar" id="myAvatar">U</div> 
+        <div> 
+          <div id="myName" class="my-name">Anonymous</div> 
+          <button id="changeNameBtn" class="btn tiny">Change</button> 
+        </div> 
+      </div> 
+ 
+      <div class="users-list"> 
+        <div class="section-title">Online</div> 
+        <ul id="users"></ul> 
+      </div> 
+ 
+      <div class="credits"> 
+        Built with Express & Socket.IO • No DB 
+      </div> 
+    </aside> 
+ 
+    <main class="chat"> 
+      <header class="chat-header"> 
+        <div class="title">Global Chatroom</div> 
+        <div id="typing" class="typing"></div> 
+      </header> 
+ 
+      <div id="messages" class="messages" aria-live="polite"></div> 
+ 
+      <form id="composer" class="composer"> 
+        <input id="msgInput" placeholder="Say something nice..." autocomplete="off" /> 
+        <button type="submit" class="send-btn">Send</button>       </form> 
+    </main> 
+  </div> 
+ 
+  <!-- name modal (simple) -->   <div id="nameModal" class="modal hidden"> 
+    <div class="modal-card"> 
+      <h3>Enter display name</h3> 
+      <input id="nameInput" maxlength="32" placeholder="Your name..." /> 
+      <div class="modal-actions"> 
+        <button id="saveName" class="btn">Save</button> 
+        <button id="cancelName" class="btn alt">Cancel</button> 
+      </div> 
+    </div> 
+  </div> 
+ 
+   
+<script src="/client.js"></script> 
+</body> 
+</html> 
